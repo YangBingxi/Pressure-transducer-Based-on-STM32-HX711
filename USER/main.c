@@ -76,6 +76,7 @@ int main(void)
         printf("ADCon_CurrentVal = %d \r\n", ADCon_CurrentVal);
         printf("ADCon_InitVal = %d \r\n", ADCon_InitVal);
 
+
         if (ADCon_CurrentVal >= ADCon_InitVal)
         {
             //获取实物的AD采样数值。由于在没有任何重量的情况下，
