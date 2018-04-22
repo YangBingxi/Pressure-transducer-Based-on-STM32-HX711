@@ -67,7 +67,7 @@ int main(void)
      同时，电阻应变片的应变会有所不同，所以，可以将量程划分区间，
      各区间的GapValue值不同，以获得比较精确的测量值
     ***********************************************************/
-    GapValue = 550;               //该值根据测量值进行调整，
+    GapValue = 520;               //该值根据测量值进行调整，
     while (1)
     {
         //读取压力传感器经HX711转换后得到的AD转换当前值ADCon_CurrentVal
@@ -85,7 +85,21 @@ int main(void)
             //值，或对Weight再加或减补偿一个小数
             Weight_Array[i] = (float)ADCon_CurrentVal / GapValue;
             i++;
-
+            
+            if(Weight_Array[i]<15)
+              GapValue = 502;
+            else if(Weight_Array[i]<30)
+              GapValue = 501;
+            else if(Weight_Array[i]<45)
+              GapValue = 501;
+            else if(Weight_Array[i]<60)
+              GapValue = 515;
+            else if(Weight_Array[i]<75)
+              GapValue = 516;
+            else if(Weight_Array[i]<90)
+              GapValue = 516;
+            else
+              GapValue = 520;
 
         }
         if(i>9)
@@ -101,7 +115,7 @@ int main(void)
             printf("Adjust_Weight = %f g \r\n", Weight);
             LCD_ShowNum(30,100,(int)Weight,3,24);
             LCD_ShowString(66,100,16,16,24,".");
-            LCD_ShowNum(74,100,(Weight-(int)Weight)*1000,3,24);
+            LCD_ShowNum(74,100,(Weight-(int)Weight)*100000,5,24);
 
         }
         delay_ms(80);
