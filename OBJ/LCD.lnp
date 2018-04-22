@@ -7,6 +7,7 @@
 "..\obj\w25qxx.o"
 "..\obj\hx711.o"
 "..\obj\filter.o"
+"..\obj\key.o"
 "..\obj\delay.o"
 "..\obj\sys.o"
 "..\obj\usart.o"

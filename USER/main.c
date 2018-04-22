@@ -7,6 +7,7 @@
 #include "HX711.h"
 #include "usart.h"
 #include "filter.h"
+#include "key.h"
 /******************************************************************
 校准参数：
 因为不同的传感器特性曲线不是很一致，因此，每一个传感器需要矫正这里
@@ -19,11 +20,11 @@ int main(void)
     //ADCon_InitVal：HX711的AD采样初始值
     //ADCon_CurrentVal：加载后的HX711的AD当前采样值
     u32 ADCon_InitVal, ADCon_CurrentVal;
-    float Weight, GapValue;
+    float Weight, GapValue,Adjust = 0;
     float Weight_Array[10];
-    u8 i = 0;
+    u8 i = 0,KeyIn = 5;
     delay_init();                  //延时函数初始化
-
+    KEY_Init();
     //LCD初始化
     LCD_Init();                //初始化LCD
     W25QXX_Init();             //初始化W25Q128
@@ -108,9 +109,9 @@ int main(void)
             //电脑通过串口调试助手显示ADCon_CurrentVal
             printf("ADCon_CurrentVal = %d \r\n", ADCon_CurrentVal);
             //电脑通过串口调试助手显示得到的重量值，单位为g
-            printf("Weight = %f g \r\n", Weight);
+            printf("Weight = %f g \r\n", Weight - Adjust);
             //Weight = (float)Weight*0.9745+0.6432; //回归后的线性方程
-            Weight = (float)Weight; //回归后的线性方程
+            Weight = (float)Weight - Adjust; //回归后的线性方程
             //电脑通过串口调试助手显示得到的调整重量值，单位为g
             printf("Adjust_Weight = %f g \r\n", Weight);
             POINT_COLOR = RED;
@@ -121,9 +122,17 @@ int main(void)
             LCD_ShowNum(30+84,150,(int)Weight,3,24);
             LCD_ShowString(66+84,150,16,16,24,".");
             LCD_ShowNum(74+84,150,(Weight-(int)Weight)*100000,5,24);
-            LCD_ShowString(250,200,200,16,24,"Sw Young");
+            LCD_ShowString(250,300,200,16,24,"Sw Young");
+            LCD_ShowString(30,180,200,16,24,"Weighing peeled:");
+            LCD_ShowNum(30+12*16,180,Adjust*1000,5,24);
+            LCD_ShowString(30+12*21,180,200,16,24,"mg");
 
         }
+        KeyIn = KEY_Scan(1);
+        if(KeyIn==WKUP_PRES)
+         Adjust+=0.1; 
+        if(KeyIn==KEY1_PRES&&Adjust>0)
+         Adjust-=0.1;        
         delay_ms(80);
     }
 }

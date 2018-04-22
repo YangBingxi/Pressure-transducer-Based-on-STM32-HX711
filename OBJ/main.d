@@ -39,3 +39,4 @@
 ..\obj\main.o: ..\SYSTEM\usart\usart.h
 ..\obj\main.o: D:\Project_Program\Keil5_MDK\ARM\ARMCC\Bin\..\include\stdio.h
 ..\obj\main.o: ..\HARDWARE\Filter\filter.h
+..\obj\main.o: ..\HARDWARE\KEY\key.h

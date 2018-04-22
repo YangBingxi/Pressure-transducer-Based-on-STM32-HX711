@@ -336,7 +336,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F10X_HD,USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>..\CORE;..\HARDWARE\LCD;..\HARDWARE\SPI;..\HARDWARE\W25QXX;..\STM32F10x_FWLib\inc;..\SYSTEM\delay;..\SYSTEM\sys;..\USER;..\SYSTEM\usart;..\TEXT;..\HARDWARE\HX711;..\HARDWARE\Filter</IncludePath>
+              <IncludePath>..\CORE;..\HARDWARE\LCD;..\HARDWARE\SPI;..\HARDWARE\W25QXX;..\STM32F10x_FWLib\inc;..\SYSTEM\delay;..\SYSTEM\sys;..\USER;..\SYSTEM\usart;..\TEXT;..\HARDWARE\HX711;..\HARDWARE\Filter;..\HARDWARE\KEY</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -424,6 +424,11 @@
               <FileName>filter.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\HARDWARE\Filter\filter.c</FilePath>
+            </File>
+            <File>
+              <FileName>key.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\KEY\key.c</FilePath>
             </File>
           </Files>
         </Group>
