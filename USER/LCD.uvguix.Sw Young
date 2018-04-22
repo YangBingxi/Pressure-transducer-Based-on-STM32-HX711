@@ -83,18 +83,18 @@
       <flags>2</flags>
       <showCmd>3</showCmd>
       <MinPosition>
-        <xPos>-1</xPos>
-        <yPos>-1</yPos>
+        <xPos>-32000</xPos>
+        <yPos>-32000</yPos>
       </MinPosition>
       <MaxPosition>
         <xPos>-1</xPos>
         <yPos>-1</yPos>
       </MaxPosition>
       <NormalPosition>
-        <Top>258</Top>
-        <Left>2282</Left>
-        <Right>3360</Right>
-        <Bottom>860</Bottom>
+        <Top>187</Top>
+        <Left>1883</Left>
+        <Right>2961</Right>
+        <Bottom>789</Bottom>
       </NormalPosition>
     </WindowPosition>
     <MDIClientArea>
@@ -1815,9 +1815,9 @@
       <ActiveTab>0</ActiveTab>
       <Doc>
         <Name>.\main.c</Name>
-        <ColumnNumber>18</ColumnNumber>
-        <TopLine>61</TopLine>
-        <CurrentLine>70</CurrentLine>
+        <ColumnNumber>35</ColumnNumber>
+        <TopLine>112</TopLine>
+        <CurrentLine>120</CurrentLine>
         <Folding>1</Folding>
         <ContractedFolders></ContractedFolders>
         <PaneID>0</PaneID>
@@ -1834,7 +1834,7 @@
       <Doc>
         <Name>..\HARDWARE\Filter\filter.c</Name>
         <ColumnNumber>2</ColumnNumber>
-        <TopLine>67</TopLine>
+        <TopLine>57</TopLine>
         <CurrentLine>78</CurrentLine>
         <Folding>1</Folding>
         <ContractedFolders></ContractedFolders>
@@ -1842,9 +1842,9 @@
       </Doc>
       <Doc>
         <Name>..\HARDWARE\LCD\lcd.c</Name>
-        <ColumnNumber>14</ColumnNumber>
-        <TopLine>73</TopLine>
-        <CurrentLine>80</CurrentLine>
+        <ColumnNumber>15</ColumnNumber>
+        <TopLine>74</TopLine>
+        <CurrentLine>79</CurrentLine>
         <Folding>1</Folding>
         <ContractedFolders></ContractedFolders>
         <PaneID>0</PaneID>

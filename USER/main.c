@@ -85,7 +85,7 @@ int main(void)
             //值，或对Weight再加或减补偿一个小数
             Weight_Array[i] = (float)ADCon_CurrentVal / GapValue;
             i++;
-            
+            //参数分段拟合
             if(Weight_Array[i]<15)
               GapValue = 502;
             else if(Weight_Array[i]<30)
@@ -100,7 +100,6 @@ int main(void)
               GapValue = 516;
             else
               GapValue = 520;
-
         }
         if(i>9)
         { 
@@ -110,12 +109,19 @@ int main(void)
             printf("ADCon_CurrentVal = %d \r\n", ADCon_CurrentVal);
             //电脑通过串口调试助手显示得到的重量值，单位为g
             printf("Weight = %f g \r\n", Weight);
+            //Weight = (float)Weight*0.9745+0.6432; //回归后的线性方程
             Weight = (float)Weight; //回归后的线性方程
             //电脑通过串口调试助手显示得到的调整重量值，单位为g
             printf("Adjust_Weight = %f g \r\n", Weight);
-            LCD_ShowNum(30,100,(int)Weight,3,24);
-            LCD_ShowString(66,100,16,16,24,".");
-            LCD_ShowNum(74,100,(Weight-(int)Weight)*100000,5,24);
+            POINT_COLOR = RED;
+            LCD_ShowString(30,100,300,16,24,"Pressure sensor experiment");
+            POINT_COLOR = GREEN;
+            LCD_ShowString(30,150,100,16,24,"Weight:");
+            LCD_ShowString(74+84+65,150,12,16,24,"g");
+            LCD_ShowNum(30+84,150,(int)Weight,3,24);
+            LCD_ShowString(66+84,150,16,16,24,".");
+            LCD_ShowNum(74+84,150,(Weight-(int)Weight)*100000,5,24);
+            LCD_ShowString(250,200,200,16,24,"Sw Young");
 
         }
         delay_ms(80);
